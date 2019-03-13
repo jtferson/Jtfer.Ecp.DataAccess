@@ -1,0 +1,18 @@
+{
+  "name": "com.jtfer.ecp.dataaccess",
+  "author": "Jtferson",
+  "displayName": "ECP DataAccess",
+  "description": "Standard data access to DB project with support primary key as 'Guid' type",
+  "unity": "2018.3",
+  "version": "2019.3.12",
+  "keywords": [
+    "ecp",
+    "pipeline",
+    "data-access"
+  ],
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jtferson/Jtfer.Ecp.DataAccess"
+  }
+}

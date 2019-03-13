@@ -1,0 +1,14 @@
+{
+  "name": "Jtfer.Ecp.DataAccess",
+  "references": [
+    "Jtfer.Ecp"
+  ],
+  "optionalUnityReferences": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": []
+}
