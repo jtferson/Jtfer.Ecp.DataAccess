@@ -5,6 +5,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Jtfer.Ecp.DataAccess.csproj.meta" />
+    <None Remove="Jtfer.Ecp.Legacy.DataAccess.asmdef.meta" />
+    <None Remove="package.json.meta" />
+    <None Remove="src.meta" />
+    <None Remove="src\DataAccessContextBase.cs.meta" />
+    <None Remove="src\DataGateway.cs.meta" />
+    <None Remove="src\DbConnectionBase.cs.meta" />
+    <None Remove="src\DbContexts.cs.meta" />
+    <None Remove="src\DbObject.cs.meta" />
+    <None Remove="src\Providers.cs.meta" />
+    <None Remove="src\RepositoryBase.cs.meta" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Jtfer.Ecp\Jtfer.Ecp.csproj" />
   </ItemGroup>
 
