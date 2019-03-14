@@ -151,13 +151,10 @@ namespace Jtfer.Ecp.DataAccess
         public override IEnumerable<TChild> AddRange<TChild>(IEnumerable<TChild> objs)
         {
             var provider = GetProvider<TChild>();
-            foreach (var obj in objs)
+            AddTransaction(() =>
             {
-                AddTransaction(() =>
-                {
-                    provider.Insert(obj);
-                });
-            }
+                provider.Insert(objs);
+            });
             return objs;
         }
 

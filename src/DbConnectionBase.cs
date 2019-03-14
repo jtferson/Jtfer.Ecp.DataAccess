@@ -35,6 +35,7 @@ namespace Jtfer.Ecp.DataAccess
         
         public abstract IEnumerable<T> Get<T>() where T : DbObject;
         public abstract IEnumerable<T> Get<T>(Expression<Func<T, bool>> query) where T : DbObject;
+        public abstract void Insert<T>(IEnumerable<T> dtos) where T : DbObject;
         public abstract void Insert<T>(T dto) where T : DbObject;
         public abstract void Update<T>(IEnumerable<T> dtos) where T : DbObject;
         public abstract bool Update<T>(T dto) where T : DbObject;
