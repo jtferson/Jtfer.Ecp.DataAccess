@@ -5,17 +5,18 @@ using System.Linq.Expressions;
 
 namespace Jtfer.Ecp.DataAccess
 {
-    public abstract class DbConnectionBase : IInitContainer
+    public abstract class DbConnectionBase : IContainer
     {
         private Queue<Action> _transactions = new Queue<Action>();
         protected abstract string DatabaseName { get; }
         protected abstract string FileFormat { get; }
         protected string DbPath { get; private set; }
+
  
-        public void Initialize()
+        internal void LoadDb(Action checkStatus)
         {
             var dbVersion = GetDbVersion();
-            DbPath = GetDbPath(dbVersion);
+            DbPath = LoadDb(dbVersion, checkStatus);
         }
 
         public void Destroy()
@@ -39,7 +40,7 @@ namespace Jtfer.Ecp.DataAccess
             _transactions.Enqueue(transaction);
         }
         protected abstract string GetDbVersion();
-        protected abstract string GetDbPath(string dbVersion);
+        protected abstract string LoadDb(string dbVersion, Action checkStatus);
         
         public abstract IEnumerable<T> Get<T>() where T : DbObject;
         public abstract IEnumerable<T> Get<T>(Expression<Func<T, bool>> query) where T : DbObject;

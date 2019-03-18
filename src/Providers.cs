@@ -144,6 +144,21 @@ namespace Jtfer.Ecp.DataAccess
         private DbConnectionBase cachedProvider;
         private Type lastType;
 
+        internal void LoadDatabases(Action<bool> callback)
+        {
+            var providerCount = providers.Length;
+            var count = 0;
+            foreach (var p in providers)
+            {
+                p.LoadDb(() =>
+                {
+                    count++;
+                    if(providerCount == count)
+                        if(callback != null)
+                            callback(true);
+                });
+            }
+        }
         internal void SetProviders(params DbConnectionBase[] providers)
         {
             this.providers = providers;

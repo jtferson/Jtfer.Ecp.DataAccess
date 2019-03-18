@@ -7,6 +7,7 @@ namespace Jtfer.Ecp.DataAccess
 {
     public abstract class DataAccessContextBase : PipelineContext
     {
+        private DbRouter dbRouter;
         public DataAccessContextBase(Domain domain, bool isActive = true, string name = null) : base(domain, isActive, name)
         {
         }
@@ -14,10 +15,14 @@ namespace Jtfer.Ecp.DataAccess
         protected override void AddContainers()
         {
             AddContainer<DataMemoryProvider>();
-            var dbRouter = AddContainer<DbRouter>();
+            dbRouter = AddContainer<DbRouter>();
             AddContainer<DataGateway>();
             var providers = DefineDbConnections();
             dbRouter.SetProviders(providers.ToArray());
+        }
+        public void CheckDatabases(Action<bool[]> callback)
+        {
+            foreach(var )
         }
         public abstract IEnumerable<DbConnectionBase> DefineDbConnections();
 
