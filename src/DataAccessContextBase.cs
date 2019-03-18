@@ -20,9 +20,9 @@ namespace Jtfer.Ecp.DataAccess
             var providers = DefineDbConnections();
             dbRouter.SetProviders(providers.ToArray());
         }
-        public void CheckDatabases(Action<bool[]> callback)
+        public void CheckDatabases(Action<bool> callback)
         {
-            foreach(var )
+            dbRouter.LoadDatabases(callback);
         }
         public abstract IEnumerable<DbConnectionBase> DefineDbConnections();
 
